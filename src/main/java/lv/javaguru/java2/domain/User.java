@@ -33,4 +33,11 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    public User(String firstName,String lastName) {
+        setFirstName(firstName);
+        setLastName(lastName);
+    }
+    public User() {
+
+    }
 }
