@@ -25,21 +25,21 @@ public class UserDAOImplTest {
 
     @Test
     public void testCreate() throws DBException {
-        User user = createUser("F", "L");
+        User user = createUser("F", "L", "e");
 
         userDAO.create(user);
 
         User userFromDB = userDAO.getById(user.getUserId());
         assertNotNull(userFromDB);
         assertEquals(user.getUserId(), userFromDB.getUserId());
-        assertEquals(user.getFirstName(), userFromDB.getFirstName());
-        assertEquals(user.getLastName(), userFromDB.getLastName());
+        assertEquals(user.getUsername(), userFromDB.getUsername());
+        assertEquals(user.getPassword(), userFromDB.getPassword());
     }
 
     @Test
     public void testMultipleUserCreation() throws DBException {
-        User user1 = createUser("F1", "L1");
-        User user2 = createUser("F2", "L2");
+        User user1 = createUser("F1", "L1", "e1");
+        User user2 = createUser("F2", "L2", "e2");
         userDAO.create(user1);
         userDAO.create(user2);
         List<User> users = userDAO.getAll();
@@ -48,10 +48,11 @@ public class UserDAOImplTest {
 
 
 
-    private User createUser(String firstName, String lastName) {
+    private User createUser(String username, String password, String email) {
         User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
         return user;
     }
 

@@ -1,43 +1,53 @@
 package lv.javaguru.java2.domain;
 
-/**
- * Created by Viktor on 01/07/2014.
- */
 public class User {
 
-    private long userId;
-    private String firstName;
-    private String lastName;
+    private Long userId;
 
+    private String username;
 
-    public long getUserId() {
+    private String password;
+
+    private String email;
+
+    public User(){}
+
+    public User(String username, String password, String email){
+        setUsername(username);
+        setPassword(password);
+        setEmail(email);
+    }
+
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUserId(Long id) {
+        this.userId = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setPassword(String password) {
+        this.password = password;
     }
-    public User(String firstName,String lastName) {
-        setFirstName(firstName);
-        setLastName(lastName);
-    }
-    public User() {
 
+    public String getEmail() {
+        return email;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }
